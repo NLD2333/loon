@@ -1,0 +1,17 @@
+#!name=FNOS(飞牛)论坛自动签到
+#!desc=自动获取飞牛论坛Cookie并每日执行签到。
+#!author=2333
+#!homepage=https://club.fnnas.com/
+#!icon=https://club.fnnas.com/favicon.ico
+#!date=2026-05-13
+
+[Argument]
+FnCookie = switch, true, tag=获取Cookie
+FnCron = input, "30 8 * * *", tag=签到定时
+
+[Script]
+http-request ^https?:\/\/club\.fnnas\.com script-path=https://raw.githubusercontent.com/NLD2333/loon/refs/heads/main/FN/FeiniuCheckIn.js, requires-body=false, timeout=10, enable={FnCookie}, tag=获取飞牛Cookie
+cron {FnCron} script-path=https://raw.githubusercontent.com/NLD2333/loon/refs/heads/main/FN/FeiniuCheckIn.js, timeout=30, tag=飞牛论坛签到
+
+[MitM]
+hostname = club.fnnas.com
