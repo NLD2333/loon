@@ -315,8 +315,8 @@ const results = [];
 let chain = Promise.resolve();
 ids.forEach((id, idx) => {
 chain = chain.then(() => runAccount(store.accounts[id], idx, total))
-。then(text => { results.push(text); })
-。then(() => idx < ids.length - 1 ? sleep(ACCOUNT_GAP) : null);
+.then(text => { results.push(text); })
+.then(() => idx < ids.length - 1 ? sleep(ACCOUNT_GAP) : null);
 });
 chain.then(() => {
 const notifyTitle = `🎉 全部完成 (${total}个账号)`;
