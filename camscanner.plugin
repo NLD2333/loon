@@ -1,3 +1,12 @@
+#!name = 扫描全能王转盘抽奖
+#!date = 2026-7-13
+#!author = MaYIHEI
+#!loon_version = 3.2.4(787)
+
+[Argument]
+arg1 = switch,true,tag=扫描全能王 Cookie
+arg2 = input,"15 10 * * *",tag=扫描全能王签到
+
 [MITM]
 hostname = api-cs.intsig.net
 
