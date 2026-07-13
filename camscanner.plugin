@@ -1,7 +1,7 @@
 #!name = 扫描全能王转盘抽奖
 #!date = 2026-7-13
 #!author = MaYIHEI
-#!loon_version = 3.2.4(787)
+#!icon = https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/camscanner.png
 
 [Argument]
 arg1 = switch,true,tag=扫描全能王 Cookie
@@ -11,6 +11,6 @@ arg2 = input,"15 10 * * *",tag=扫描全能王签到
 hostname = api-cs.intsig.net
 
 [Script]
-http-request ^https:\/\/api-cs\.intsig\.net\/user\/cs\/get_user_attribute tag=扫描全能王 Cookie, script-path=https://raw.githubusercontent.com/MaYIHEI/paperclip/refs/heads/main/app/camscanner/camscanner.cookie.js, requires-body=false, img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/camscanner.png
+http-request ^https:\/\/api-cs\.intsig\.net\/user\/cs\/get_user_attribute tag=扫描全能王 Cookie, script-path=https://raw.githubusercontent.com/MaYIHEI/paperclip/refs/heads/main/app/camscanner/camscanner.cookie.js, requires-body=false, img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/camscanner.png, enable= {arg1}
 
-cron "15 10 * * *" script-path=https://raw.githubusercontent.com/MaYIHEI/paperclip/refs/heads/main/app/camscanner/camscanner.js, tag=扫描全能王签到, img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/camscanner.png, enable=true
+cron {arg2} script-path=https://raw.githubusercontent.com/MaYIHEI/paperclip/refs/heads/main/app/camscanner/camscanner.js, tag=扫描全能王签到, img-url=https://raw.githubusercontent.com/MaYIHEI/pin/refs/heads/main/app/camscanner.png, enable= {arg2}
